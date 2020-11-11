@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protest via game</title>
+
+        <!-- MY CSS --> 
+        <link rel="stylesheet" href="style.css">
+        
+         <!-- CSS --> 
+    
+         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    
+        <!-- Js --> 
+    
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    
+        <!-- FONT --> 
+        
+</head>
+<body onclick="jump()">
+   <div class="container">
+       <div class="box" id="dis">         
+            <h1>Protest in your own way</h1>          
+        </div>
+   </div>
+    <div class="box" id="f">
+        <h2>Made By Jim</h2>
+    </div>   
+
+
+   <div class="container">
+        <div class="box">
+            <div class="bg">
+                <img onclick="fire1()" id="they1" class="they" src="images/bg1.png" alt="" style="float: left;">
+                &nbsp; &nbsp; &nbsp; &nbsp;
+                <img onclick="fire2()" id="they2" class="they" src="images/bg3.png" alt="" style="float: right;">
+            </div>
+        </div>
+        
+    </div>
+   
+    <div class="container">       
+        <div class="text-center">        
+            <div class="me">
+                <img src="images/me1.png" id="mygun" class="meee1" >
+                <img src="images/me22.png"  class="meee11" >   
+                
+                <img class="form" src="images/boycott.png">
+            </div>   
+            
+        </div>
+        
+    </div>
+
+    <audio id="aud5" src="images/5.mp3"></audio>
+    <audio id="aud6" src="images/6.mp3"></audio>
+
+    <script>
+                    
+        const HIT5 = new Audio();
+        HIT5.src = "images/mysound.mp3"; 
+            
+        const HIT6 = new Audio();
+        HIT6.src =  "images/aud2.mp3";
+            
+        
+
+        var npm;
+            
+        var fires1;
+        var fires2;
+        
+            
+            
+        var textNode;
+        var removdc1;
+        var removdc2;
+        
+        
+            
+
+            
+            
+           
+
+            function fire1(){
+                var ttt = document.querySelector("#they1");
+                ttt.classList.add("flips");
+
+                setTimeout(come1,(Math.random()*2000)+800);
+                clearTimeout(fires1);
+                clearTimeout(removdc1);               
+        
+            }
+
+            function fire2(){
+                var tttt2 = document.querySelector("#they2");
+                tttt2.classList.add("flips");
+         
+                 setTimeout(come2,(Math.random()*2000)+800);
+                 clearTimeout(fires2);
+                clearTimeout(removdc2);
+               
+            }
+
+            
+            function come1(){
+                var mnn = document.querySelector("#they1");
+                mnn.classList.remove("flips");
+
+                fires1 = setTimeout(theyfire1, 300);
+            }
+
+            function come2(){
+                var mnnn = document.querySelector("#they2");
+                mnnn.classList.remove("flips");
+
+                fires2 = setTimeout(theyfire2, 300);
+            }
+            
+
+            function jump() {
+           
+
+                var gun = document.querySelector("#mygun");
+                gun.src="images/me22.png";
+        
+      
+             setTimeout(gravity, 85);        
+      
+            
+                 HIT5.load();
+                 HIT5.play();
+              
+           }
+   
+           function gravity() {
+               
+               var gun= document.querySelector("#mygun");
+               gun.src="images/me1.png";           
+           }
+                
+
+            document.getElementById('they1').setAttribute('draggable', false);
+            document.getElementById('they2').setAttribute('draggable', false);
+            
+
+
+           window.onmousemove = function(){
+               cg();
+           }
+
+            function cg(){
+                var x = event.clientX * 45 / window.innerWidth+ 25 + "%";
+                 var y = event.clientY * 45 / window.innerHeight+ 25 +"%";
+
+                mygun.style.left = x;
+           }
+
+
+           function removd (){
+        
+            var get11 = document.querySelector("#they1");
+             get11.src="images/bg1.png";     
+          }
+
+            
+          function removd2 (){
+            var get22 = document.querySelector("#they2");
+              get22.src="images/bg3.png";         
+             }
+        </script> 
+
+        <script src="game.js"></script>
+</body>
+</html>
